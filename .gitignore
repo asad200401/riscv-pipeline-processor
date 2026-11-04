@@ -1,0 +1,75 @@
+# Vivado / Xilinx generated files
+*.jou
+*.log
+*.str
+*.xpr
+*.xsa
+*.bit
+*.ltx
+*.dmp
+*.pb
+*.wdb
+*.sim
+*.cache/
+*.runs/
+*.hw/
+*.ip_user_files/
+*.gen/
+*.srcs/
+*.data/
+*.rpt
+*.xml
+*.xdc
+*.pdi
+*.xci
+*.xcix
+*.edn
+*.v
+*.sv
+*.vhdl
+.xilinx/
+
+# Simulation files
+*.wcfg
+*.wdb
+*.vcd
+*.fst
+*.ghw
+*.vvp
+*.dump
+*.out
+*.vvp
+__pycache__/
+*.pyc
+
+# Project specific
+*.mem
+*.coe
+*.mif
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Synthesis / Implementation
+usage_statistics_webtalk.*
+*.qpf
+*.qsf
+*.qws
+*.rpt
+*.sdc
+*.sof
+*.pof
+*.jdi
+*.pin
+*.qdf
+
+# Temporary files
+*.bak
+*.tmp
+*.temp
