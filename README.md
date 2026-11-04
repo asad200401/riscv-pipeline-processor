@@ -5,36 +5,107 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A complete **5-Stage Pipelined RISC-V RV32I** processor implemented in SystemVerilog.  
-
-**Existing Processor (Single-Cycle):**  
-[https://github.com/asad200401/riscv-single-cycle-processor](https://github.com/asad200401/riscv-single-cycle-processor)
+This design extends my existing [riscv-single-cycle](https://github.com/asad200401/riscv-single-cycle-processor) processor into a classic 5-stage pipeline architecture.
 
 ## Description
 
-This repository contains a fully functional **5-stage pipelined** RISC-V RV32I processor.  
-
-All the core modules (ALU, Register File, Immediate Generator, Control Unit, etc.) from **my existing single cycle processor** were reused and extended to support pipelining, hazard detection, and forwarding.
-
-The goal of this project is to take **my existing processor** from a single-cycle design to a realistic 5-stage pipeline while keeping the same clean modular SystemVerilog style.
+A fully functional 5-stage pipelined RISC-V RV32I Processor implemented in SystemVerilog.  
+It supports all base integer instructions (R, I, S, B, U, J types) and is built by extending the single-cycle design into a pipelined architecture with hazard detection and forwarding.
 
 ## Features
 
-- 32-bit datapath (same as **my single cycle processor**)
-- 5-stage pipeline: IF → ID → EX → MEM → WB
-- Hazard Detection Unit
-- Data Forwarding Unit
-- Pipeline registers between stages
-- Separate Instruction and Data Memory (same structure as **my single cycle processor**)
-- Full support for R, I, S, B, U, J type instructions
-- Modular SystemVerilog design — built directly on top of **my single cycle processor**
+- 32-bit datapath
+- 5-stage pipeline architecture (IF, ID, EX, MEM, WB)
+- Separate instruction and data memory
+- Register file with 32 registers
+- ALU supporting arithmetic and logical operations
+- Immediate generator for multiple instruction formats
+- Control unit for instruction decoding
+- Jump and branch support
+- Load/store memory interface
+- Hazard detection unit
+- Data forwarding unit
+- Modular SystemVerilog design
 
 ## Pipeline Stages
 
-1. **IF**  – Instruction Fetch  
-2. **ID**  – Instruction Decode + Register Read  
-3. **EX**  – Execute (ALU + Branch decision)  
-4. **MEM** – Memory Access  
-5. **WB**  – Write Back  
+- **IF**  – Instruction Fetch  
+- **ID**  – Instruction Decode / Register Read  
+- **EX**  – Execute / ALU  
+- **MEM** – Memory Access  
+- **WB**  – Write Back  
+
+## RISC-V Datapath
+
+<!-- Add your pipeline datapath image here -->
+
+## Instruction Flow
+
+- PC
+- Instruction Fetch (IF)
+- Instruction Decode (ID)
+- Register Read
+- Immediate Generation
+- ALU Execution (EX)
+- Memory Access (MEM)
+- Write Back (WB)
+- Next PC Update
+
+## Simulation
+
+**Example Test Program**
+
+- addi x1, x0, 5
+- addi x2, x0, 10
+- addi x10, x0, 100
+- add  x3, x1, x2
+- sub  x4, x2, x1
+- sw   x3, 0(x10)
+- lw   x5, 0(x10)
+- beq  x3, x5, label
+- jal  x1, target
+- label:
+- addi x6, x0, 4
+- target:
+- sub  x7, x6, x1
+- lui  x8, 0x12345
+- auipc x9, 0x10
+- jalr x11, x9, 0
+
+## Simulation Results
+
+<!-- Add your waveform / simulation screenshot here -->
+
+**Key Observations:**
+
+- Correct execution of arithmetic operations (add, sub, addi)
+- Successful Store and Load operations (sw → lw)
+- Correct Branch behavior (beq taken)
+- Successful execution of Upper Immediate instruction (lui)
+- Correct execution of AUIPC instruction
+- Successful execution of JALR instruction
+- Proper handling of data hazards through forwarding
+- Stall insertion when required (load-use hazard)
+
+**Register File after execution:**
+
+| Register | Value |
+|:--------:|------:|
+| x1  | 5 |
+| x2  | 10 |
+| x3  | 15 |
+| x4  | 5 |
+| x5  | 15 |
+| x6  | 4 |
+| x7  | -1 |
+| x8  | 305418240 (`0x12345000`) |
+| x9  | 65584 (`0x00010030`) |
+| x10 | 100 |
+| x11 | 56 (`0x00000038`) |
+
+**Data Memory:**
+
+- mem[25] = 15 (value stored by sw at byte address 100 and successfully retrieved by lw).
 
 ## Tools Used
 
@@ -42,7 +113,11 @@ The goal of this project is to take **my existing processor** from a single-cycl
 - Xilinx Vivado
 - Venus RISC-V Simulator
 
+## Related Project
+
+This processor is an extension of my previous single-cycle design:  
+**[riscv-single-cycle](https://github.com/asad200401/riscv-single-cycle-processor)**
+
 ## Author
 
 **Asad Iqbal**
-
