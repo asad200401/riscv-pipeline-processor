@@ -37,7 +37,7 @@ It supports all base integer instructions (R, I, S, B, U, J types) and is built 
 
 ## RISC-V Datapath
 
-<!-- Add your pipeline datapath image here -->
+<img width="1291" height="625" alt="image" src="https://github.com/user-attachments/assets/fddfcf9b-8e89-4fc2-8544-e45c6243bcb9" />
 
 ## Instruction Flow
 
@@ -74,7 +74,7 @@ It supports all base integer instructions (R, I, S, B, U, J types) and is built 
 
 ## Simulation Results
 
-<!-- Add your waveform / simulation screenshot here -->
+<img width="1337" height="577" alt="image" src="https://github.com/user-attachments/assets/7b08cd28-e216-44df-b1cf-88f72f8972c2" />
 
 **Key Observations:**
 
