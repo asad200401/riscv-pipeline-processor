@@ -89,6 +89,8 @@ It supports all base integer instructions (R, I, S, B, U, J types) and is built 
 
 **Register File after execution:**
 
+<img width="298" height="297" alt="image" src="https://github.com/user-attachments/assets/22216f5f-b860-46a1-9325-30cf0cb42b8a" />
+
 | Register | Value |
 |:--------:|------:|
 | x1  | 5 |
