@@ -105,6 +105,8 @@ It supports all base integer instructions (R, I, S, B, U, J types) and is built 
 
 **Data Memory:**
 
+<img width="261" height="276" alt="image" src="https://github.com/user-attachments/assets/a9a9f38d-0209-4b58-a8ff-0df6001b6910" />
+
 - mem[25] = 15 (value stored by sw at byte address 100 and successfully retrieved by lw).
 
 ## Tools Used
